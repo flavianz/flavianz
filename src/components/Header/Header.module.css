@@ -1,0 +1,19 @@
+.container {
+    border-bottom-style: solid;
+    border-color: #000000;
+    border-width: 1px;
+    display: flex;
+    height: 15vh;
+    flex-direction: row;
+    width: 100vw;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.link {
+    color: #000000;
+
+}
+.link:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
