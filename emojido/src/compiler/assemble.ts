@@ -46,13 +46,13 @@ export async function execute(source: string) {
 
     console.log("Standard Output:");
     console.log(
-        ...result.data.execResult.stdout.map((text: { text: string }) => {
+        ...result.data.execResult.stdout.map((text: { text: string; }) => {
             return text.text;
         }),
     );
     console.log(
         "Standard Error: ",
-        ...result.data.execResult.stderr.map((text: { text: string }) => {
+        ...result.data.execResult.stderr.map((text: { text: string; }) => {
             return text.text;
         }),
     );

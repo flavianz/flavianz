@@ -16,14 +16,12 @@ export function compile(source: string, debug: boolean, file: string): string {
     source = demoji(source);
     const tokenizer = new Tokenizer(source, file);
     const tokens = tokenizer.tokenize();
-    console.log("hello");
-
     const parser = new Parser(tokens);
     const program = parser.parseProgram();
-    console.log("world");
+
     const generator = new Generator(program);
     const asm = generator.generateProgram();
-    console.log("nigA");
+
     let assemblyTokens = asm.text;
 
     if (!debug) {

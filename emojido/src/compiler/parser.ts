@@ -65,6 +65,7 @@ import {
 } from "./classes/Functions";
 import fs from "node:fs";
 import { demoji } from "./demoji";
+import { math, str, sys } from "./stdlib.ts";
 
 const literalTypeToEmoji = {
     [LiteralType.integerLiteral]: "🔢",
@@ -518,7 +519,6 @@ export class Parser {
             const line = this.consume().line;
 
             let statementPrint: StatementPrint;
-
             const expr = this.parseExpr();
             if (expr) {
                 statementPrint = new StatementPrint(expr, line);
@@ -993,16 +993,16 @@ export class Parser {
             ) {
                 ident = string.value[i] + ident;
             }
+            let source: string;
             if (string.value === "math") {
-                string.value = "stdlib/math.ejo";
+                source = math
             } else if (string.value === "sys") {
-                string.value = "stdlib/sys.ejo";
+                source = sys
             } else if (string.value === "str") {
-                string.value = "stdlib/str.ejo";
+                source = str
             } else {
                 string.value += ".ejo";
             }
-            let source = fs.readFileSync(string.value).toString();
 
             source = demoji(source);
             const tokenizer = new Tokenizer(source, string.value);
@@ -1010,8 +1010,6 @@ export class Parser {
 
             const parser = new Parser(tokens);
             const program = parser.parseProgram();
-
-            console.log(program.statements);
 
             for (const statement of program.statements) {
                 this.program.statements.push(statement);
@@ -1025,8 +1023,7 @@ export class Parser {
                             line,
                         );
                     }
-                    program.statements.push(statement);
-                    this.scopes[0].vars.set(
+                    this.scopes[this.scopes.length - 1].vars.set(
                         statement.identifier,
                         statement.expression,
                     );
@@ -1040,8 +1037,7 @@ export class Parser {
                             line,
                         );
                     }
-                    program.statements.push(statement);
-                    this.scopes[0].functions.set(
+                    this.scopes[this.scopes.length - 1].functions.set(
                         statement.identifier,
                         statement,
                     );
@@ -1263,7 +1259,7 @@ export class Parser {
     /**Parse the tokens to an understandable parse tree
      * @returns {Program | null} the root node of the parse tree
      * */
-    parseProgram(): Program | null {
+    parseProgram(): Program {
         while (this.peek()) {
             const statement = this.parseStatement();
             if (statement) {

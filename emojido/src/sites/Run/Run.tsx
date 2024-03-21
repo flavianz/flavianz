@@ -10,10 +10,10 @@ export default function Run() {
         <div className={styles.container}>
             <div className={styles.headerContainer}>
                 <h1 className={styles.title}>Run emojido</h1>
-                <button
+                <button className={styles.buttonRun}
                     onClick={async () => {
                         setLoading(true);
-                        let result;
+                        let result: { standardErr: {text: string}[]; exitCode: number | string; standardOut: {text: string}[]; };
                         try {
                             result = await run(input);
                             if (result.standardErr.length > 0) {
@@ -31,16 +31,15 @@ export default function Run() {
                                 for (const item of result.standardOut) {
                                     str += item.text;
                                 }
-                                console.log(str);
                                 setOutput(
-                                    str.replaceAll("\x00", "\n").substring(1) +
+                                    str.replaceAll("\x00", "\n") +
                                         "\nExit Code: " +
                                         result.exitCode,
                                 );
                             }
                             setLoading(false);
                         } catch (e) {
-                            setOutput(e.value);
+                            setOutput(e);
                             setLoading(false);
                         }
                     }}
