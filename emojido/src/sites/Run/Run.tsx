@@ -44,7 +44,7 @@ export default function Run() {
                         }
                     }}
                 >
-                    {loading ? "Executing..." : "run"}
+                    {loading ? <div className={styles.loader}></div> : "🚀"}
                 </button>
             </div>
             <div className={styles.windows}>
