@@ -1,29 +1,30 @@
 :root {
   line-height: 1.5;
   font-weight: 400;
-  color: #000000;
-  background-color: #deddd9;
+  color: #f4f2f1;
+  background-color: #1d405c;
   color-scheme: light dark;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: "Rubik Mono One", monospace;
+  font-family: "Inter", monospace;
   font-style: normal;
   margin: 0;
+  --text: #f4f2f1;
 }
 
 a:hover {
   cursor: pointer;
 }
 
-body {
+* {
   margin: 0;
-  display: flex;
-  place-items: center;
 }
 @media (prefers-color-scheme: light) {
   :root {
-
+    background-color: #f4f2f1;
+    color: #1d405c;
+    --text: #1d405c;
   }
 }
