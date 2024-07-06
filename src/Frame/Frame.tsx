@@ -1,4 +1,5 @@
 import styles from "./Frame.module.css";
+import Welcome from "../pages/Welcome/Welcome.tsx";
 
 function GitHubLogo() {
   return (
@@ -16,11 +17,20 @@ function GitHubLogo() {
   );
 }
 
+function Page() {
+  console.log(window.location.pathname);
+  switch (window.location.href) {
+    case "/":
+    default:
+      return <Welcome />;
+  }
+}
+
 export default function Frame() {
   return (
     <div className={styles.container}>
       <div className={styles.headerContainer}>
-        <h1>F Z</h1>
+        <h1 className={styles.logo}>FZ</h1>
         <a
           className={styles.githubContainer}
           href="https://www.github.com/flavianz"
@@ -29,6 +39,9 @@ export default function Frame() {
           Github Logo{/*for seo (not visible)*/}
           <GitHubLogo />
         </a>
+      </div>
+      <div className={styles.pageContainer}>
+        <Page />
       </div>
     </div>
   );

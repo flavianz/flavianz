@@ -1,0 +1,14 @@
+.title {
+    font-family: "Outfit", sans-serif;
+    font-size: 6rem;
+    font-weight: 800;
+}
+.subTitle {
+    font-size: 3rem;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+}
