@@ -1,6 +1,7 @@
 import styles from "./Frame.module.css";
 import Welcome from "../pages/Welcome/Welcome.tsx";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import Projects from "../pages/Projects/Projects.tsx";
 
 const pages = {
   "/": "Hi",
@@ -24,35 +25,62 @@ function GitHubLogo() {
   );
 }
 
-function Page(path: string) {
-  return <Welcome></Welcome>;
-  // switch (path) {
-  //   case "/":
-  //     return <Welcome />;
-  //   default:
-  //     window.location.pathname = "/";
-  //     return <Welcome />;
-  // }
-}
-
 export default function Frame() {
   const [path, setPath] = useState(window.location.pathname);
-  const [y, setY] = useState(document.scrollingElement.scrollTop);
+  const scrollReady = useRef(true);
 
-  function handleScroll() {
-    const index = Object.keys(pages).indexOf(path);
-    console.log("scrolol");
-    if (y > window.scrollY) {
-      console.log("scrolling up");
-    } else if (y < window.scrollY) {
-      console.log("scrolling down");
+  function Page() {
+    console.log("render", path);
+    switch (path) {
+      case "/":
+        return <Welcome />;
+      case "/projects":
+        return <Projects />;
+      default:
+        return <Welcome />;
     }
-    setY(window.scrollY);
-    // next page if not last
-    // if (index !== Object.keys(index).length - 1) {
-    //   setPath(Object.keys(pages)[index + 1]);
-    // }
   }
+
+  function handleScroll(event: Event) {
+    if (!scrollReady.current) {
+      event.preventDefault();
+      return;
+    }
+    scrollReady.current = false;
+    const index = Object.keys(pages).indexOf(path);
+    const scroll = window.scrollY;
+    console.log("scroll", scroll);
+    if (scroll > 1) {
+      console.log("scroll down");
+      //load next page if not last
+      if (index !== Object.keys(index).length - 1) {
+        console.log("change", Object.keys(pages)[index + 1]);
+        setPath(Object.keys(pages)[index + 1]);
+        console.log(path);
+      }
+    } else if (scroll < 1) {
+      console.log("redo");
+      //load prior page if not first
+      if (index !== 0) {
+        setPath(Object.keys(pages)[index - 1]);
+      }
+    }
+  }
+
+  async function handleScrollEnd() {
+    window.scrollTo(0, 1);
+    scrollReady.current = true;
+  }
+
+  useEffect(() => {
+    window.scrollTo(0, 1);
+    window.addEventListener("scroll", (event) => handleScroll(event));
+    window.addEventListener("scrollend", handleScrollEnd);
+    return () => {
+      window.removeEventListener("scroll", (event) => handleScroll(event));
+      window.removeEventListener("scrollend", handleScrollEnd);
+    };
+  });
 
   return (
     <div className={styles.container}>
@@ -68,7 +96,7 @@ export default function Frame() {
         </a>
       </div>
       <div className={styles.pageContainer}>
-        <Page path={path} />
+        <Page />
       </div>
     </div>
   );

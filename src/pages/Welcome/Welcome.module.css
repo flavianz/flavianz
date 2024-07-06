@@ -5,6 +5,7 @@
 }
 .subTitle {
     font-size: 3rem;
+    font-weight: 500;
 }
 .container{
     display: flex;

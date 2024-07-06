@@ -8,13 +8,15 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: "Inter", monospace;
+  font-family: "Inter", sans-serif;
   font-style: normal;
   margin: 0;
   --text: #f4f2f1;
 }
 
-
+/*::-webkit-scrollbar {*/
+/*  width: 0;*/
+/*}*/
 
 a:hover {
   cursor: pointer;
