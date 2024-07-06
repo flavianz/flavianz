@@ -1,5 +1,12 @@
 import styles from "./Frame.module.css";
 import Welcome from "../pages/Welcome/Welcome.tsx";
+import { useEffect, useState } from "react";
+
+const pages = {
+  "/": "Hi",
+  "/projects": "Projects",
+  "/hobbies": "Hobbies",
+};
 
 function GitHubLogo() {
   return (
@@ -17,16 +24,36 @@ function GitHubLogo() {
   );
 }
 
-function Page() {
-  console.log(window.location.pathname);
-  switch (window.location.href) {
-    case "/":
-    default:
-      return <Welcome />;
-  }
+function Page(path: string) {
+  return <Welcome></Welcome>;
+  // switch (path) {
+  //   case "/":
+  //     return <Welcome />;
+  //   default:
+  //     window.location.pathname = "/";
+  //     return <Welcome />;
+  // }
 }
 
 export default function Frame() {
+  const [path, setPath] = useState(window.location.pathname);
+  const [y, setY] = useState(document.scrollingElement.scrollTop);
+
+  function handleScroll() {
+    const index = Object.keys(pages).indexOf(path);
+    console.log("scrolol");
+    if (y > window.scrollY) {
+      console.log("scrolling up");
+    } else if (y < window.scrollY) {
+      console.log("scrolling down");
+    }
+    setY(window.scrollY);
+    // next page if not last
+    // if (index !== Object.keys(index).length - 1) {
+    //   setPath(Object.keys(pages)[index + 1]);
+    // }
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.headerContainer}>
@@ -41,7 +68,7 @@ export default function Frame() {
         </a>
       </div>
       <div className={styles.pageContainer}>
-        <Page />
+        <Page path={path} />
       </div>
     </div>
   );
