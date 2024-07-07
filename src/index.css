@@ -14,9 +14,9 @@
   --text: #f4f2f1;
 }
 
-/*::-webkit-scrollbar {*/
-/*  width: 0;*/
-/*}*/
+::-webkit-scrollbar {
+  width: 0;
+}
 
 a:hover {
   cursor: pointer;
