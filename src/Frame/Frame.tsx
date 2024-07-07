@@ -2,6 +2,7 @@ import styles from "./Frame.module.css";
 import Welcome from "../pages/Welcome/Welcome.tsx";
 import { useEffect, useRef, useState } from "react";
 import Projects from "../pages/Projects/Projects.tsx";
+import Hobbies from "../pages/Hobbies/Hobbies.tsx";
 
 const pages = {
   "/": "Hi",
@@ -26,40 +27,43 @@ function GitHubLogo() {
 }
 
 export default function Frame() {
+  if (!Object.keys(pages).includes(window.location.pathname)) {
+    window.location.pathname = "";
+  }
   const [path, setPath] = useState(window.location.pathname);
   const scrollReady = useRef(true);
+  const scrollsPassed = useRef(0);
 
-  function Page() {
-    console.log("render", path);
-    switch (path) {
+  function Page({ renderPath }: { renderPath: string }) {
+    switch (renderPath) {
       case "/":
         return <Welcome />;
       case "/projects":
         return <Projects />;
+      case "/hobbies":
+        return <Hobbies />;
       default:
         return <Welcome />;
     }
   }
 
-  function handleScroll(event: Event) {
+  function handleScroll() {
     if (!scrollReady.current) {
-      event.preventDefault();
       return;
     }
     scrollReady.current = false;
     const index = Object.keys(pages).indexOf(path);
-    const scroll = window.scrollY;
-    console.log("scroll", scroll);
-    if (scroll > 1) {
-      console.log("scroll down");
+    const scroll = Math.round(window.scrollY * 10) / 10;
+    scrollsPassed.current++;
+    if (scroll === 0.7 && scrollsPassed.current !== 2) {
+      return;
+    }
+    if (scroll > 0) {
       //load next page if not last
-      if (index !== Object.keys(index).length - 1) {
-        console.log("change", Object.keys(pages)[index + 1]);
+      if (index !== Object.keys(pages).length - 1) {
         setPath(Object.keys(pages)[index + 1]);
-        console.log(path);
       }
-    } else if (scroll < 1) {
-      console.log("redo");
+    } else {
       //load prior page if not first
       if (index !== 0) {
         setPath(Object.keys(pages)[index - 1]);
@@ -73,11 +77,10 @@ export default function Frame() {
   }
 
   useEffect(() => {
-    window.scrollTo(0, 1);
-    window.addEventListener("scroll", (event) => handleScroll(event));
+    window.addEventListener("scroll", handleScroll);
     window.addEventListener("scrollend", handleScrollEnd);
     return () => {
-      window.removeEventListener("scroll", (event) => handleScroll(event));
+      window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("scrollend", handleScrollEnd);
     };
   });
@@ -96,7 +99,7 @@ export default function Frame() {
         </a>
       </div>
       <div className={styles.pageContainer}>
-        <Page />
+        <Page renderPath={path} />
       </div>
     </div>
   );
