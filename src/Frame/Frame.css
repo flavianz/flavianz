@@ -1,21 +1,22 @@
 @keyframes up {
-    20% {
-        box-shadow: 0 0 168px -67px rgba(0,0,0,0.75);
-        scale: 0.8;
-    }
+    /*20% {*/
+    /*    box-shadow: 0 0 168px -67px rgba(0,0,0,0.75);*/
+    /*}*/
     100% {
         opacity: 0;
+        scale: 0.5;
         transform: translate(-20%, -60%) rotate(-20deg);
     }
 }
 @keyframes down {
-    20% {
-        box-shadow: 0 0 168px -67px rgba(0,0,0,0.75);
-        scale: 0.8;
-    }
+    /*20% {*/
+    /*    box-shadow: 0 0 168px -67px rgba(0,0,0,0.75);*/
+    /*}*/
     100% {
         opacity: 0;
-        transform: translate(20%, 60%) rotate(20deg);
+        scale: 0.5;
+
+        transform: translate(-20%, 60%) rotate(20deg);
     }
 }
 
@@ -23,11 +24,11 @@
     animation: up 0.5s reverse ease-in;
 }
 .upOut  {
-    animation: up 0.5s ease-out;
+    animation: up 0.5s ease-in;
 }
 .downIn  {
     animation: down 0.5s reverse ease-in;
 }
 .downOut  {
-    animation: down 0.5s ease-out;
+    animation: down 0.5s ease-in;
 }

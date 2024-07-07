@@ -28,8 +28,8 @@
     font-size: 0;
 }
 #pageContainer {
-    width: calc(100% - 40vw);
-    padding: 12vh 20vw 8vw;
+    width: calc(100% - 30vw);
+    padding: 12vh 10vw 8vw 20vw;
     flex: 1;
     div {
         height: 100%;

@@ -4,12 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import Projects from "../pages/Projects/Projects.tsx";
 import Hobbies from "../pages/Hobbies/Hobbies.tsx";
 import "./Frame.css";
+import Age from "../pages/Age/Age.tsx";
 
-const pages = {
-    "/": "Hi",
-    "/projects": "Projects",
-    "/hobbies": "Hobbies",
-};
+const pages = ["/", "/age", "/projects", "/hobbies"];
 
 function GitHubLogo() {
     return (
@@ -28,7 +25,7 @@ function GitHubLogo() {
 }
 
 export default function Frame() {
-    if (!Object.keys(pages).includes(window.location.pathname)) {
+    if (!pages.includes(window.location.pathname)) {
         window.location.pathname = "";
     }
     const [path, setPath] = useState(window.location.pathname);
@@ -42,6 +39,8 @@ export default function Frame() {
                 return <Welcome animation={animations} />;
             case "/projects":
                 return <Projects animation={animations} />;
+            case "/age":
+                return <Age animation={animations} />;
             case "/hobbies":
                 return <Hobbies animation={animations} />;
             default:
@@ -59,25 +58,25 @@ export default function Frame() {
             return;
         }
         scrollReady.current = false;
-        const index = Object.keys(pages).indexOf(path);
+        const index = pages.indexOf(path);
 
         if (scroll > 0) {
             //load next page if not last
-            if (index !== Object.keys(pages).length - 1) {
+            if (index !== pages.length - 1) {
                 setAnimations({ ...animations, [path]: "upOut" });
-                setPath(Object.keys(pages)[index + 1]);
+                setPath(pages[index + 1]);
                 setAnimations({
-                    [Object.keys(pages)[index + 1]]: "downIn",
+                    [pages[index + 1]]: "downIn",
                 });
             }
         } else {
             //load prior page if not first
             if (index !== 0) {
                 setAnimations({ ...animations, [path]: "downOut" });
-                setPath(Object.keys(pages)[index - 1]);
+                setPath(pages[index - 1]);
                 setAnimations({
                     ...animations,
-                    [Object.keys(pages)[index - 1]]: "upIn",
+                    [pages[index - 1]]: "upIn",
                 });
             }
         }
