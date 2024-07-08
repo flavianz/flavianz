@@ -11,8 +11,15 @@ export default function Welcome({
         : "";
     return (
         <div className={styles.container + " " + className}>
-            <h1 className={styles.title}>Hi👋</h1>
-            <h2 className={styles.subTitle}>I'm Flavian.</h2>
+            <div className={styles.textContainer}>
+                <h1 className={styles.title}>Hi👋</h1>
+                <h2 className={styles.subTitle}>I'm Flavian.</h2>
+            </div>
+            <img
+                className={styles.portrait}
+                src="/public/pixel-portrait.png"
+                alt="A pic of me"
+            />
         </div>
     );
 }

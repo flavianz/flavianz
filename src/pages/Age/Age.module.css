@@ -1,6 +1,6 @@
 #title {
     font-family: Outfit, sans-serif;
-    font-size: 10vw;
+    font-size: 9vw;
     font-weight: 900;
 }
 .unit {
@@ -9,4 +9,13 @@
 }
 span {
     white-space: nowrap;
+}
+
+h2 {
+    font-size: 2rem;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }

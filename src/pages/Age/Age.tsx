@@ -20,7 +20,7 @@ export default function Age({
     }, []);
 
     return (
-        <div className={className}>
+        <div className={className + " " + styles.container}>
             <h2>I'm</h2>
             <h1 id={styles.title}>
                 <>

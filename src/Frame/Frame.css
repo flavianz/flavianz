@@ -4,8 +4,8 @@
     /*}*/
     100% {
         opacity: 0;
-        scale: 0.5;
-        transform: translate(-20%, -60%) rotate(-20deg);
+        scale: 0.8;
+        transform: translate(0, -100%);
     }
 }
 @keyframes down {
@@ -14,21 +14,20 @@
     /*}*/
     100% {
         opacity: 0;
-        scale: 0.5;
-
-        transform: translate(-20%, 60%) rotate(20deg);
+        scale: 0.8;
+        transform: translate(0, 100%);
     }
 }
 
 .upIn  {
-    animation: up 0.5s reverse ease-in;
+    animation: up 0.3s reverse;
 }
 .upOut  {
-    animation: up 0.5s ease-in;
+    animation: up 0.3s ;
 }
 .downIn  {
-    animation: down 0.5s reverse ease-in;
+    animation: down 0.3s reverse;
 }
 .downOut  {
-    animation: down 0.5s ease-in;
+    animation: down 0.3s ;
 }
