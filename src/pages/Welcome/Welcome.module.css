@@ -19,8 +19,16 @@
     justify-content: center;
     height: 100%;
 }
+.pixel {
+    z-index: 1;
+}
+.pixel:hover {
+    transition: opacity 0.8s ease-out;
+    opacity: 0;
+}
 .portrait {
-    margin-right: 15vw;
+    position: fixed;
+    right: 20vw;
     image-rendering: pixelated;
     border-radius: 50%;
     height: 13vw;

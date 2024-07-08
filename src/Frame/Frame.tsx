@@ -34,6 +34,9 @@ export default function Frame() {
     const scrollsPassed = useRef(0);
 
     function Page({ renderPath }: { renderPath: string }) {
+        if (document.location.pathname !== renderPath) {
+            document.location.pathname = renderPath;
+        }
         switch (renderPath) {
             case "/":
                 return <Welcome animation={animations} />;
@@ -111,6 +114,10 @@ export default function Frame() {
             </div>
             <div id={styles.pageContainer}>
                 <Page renderPath={path} />
+            </div>
+            <div id={styles.scrollHint}>
+                <p>Scroll!</p>
+                <p id={styles.bouncer}>v</p>
             </div>
         </div>
     );

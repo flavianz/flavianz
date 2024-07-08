@@ -41,4 +41,37 @@
     font-weight: 700;
     letter-spacing: -0.08em;
 }
-
+#scrollHint {
+    position: fixed;
+    bottom: 2vh;
+    right: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    p {
+        line-height: 1rem;
+        animation: appearAnimation 2s ease-in;
+    }
+}
+#bouncer {
+    animation: bounceAnimation 2s ease-in 2s;
+}
+@keyframes bounceAnimation {
+    0%, 30% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-2vw);
+    }
+    70%, 100% {
+        transform: translateY(0);
+    }
+}
+@keyframes appearAnimation {
+    0%, 80%  {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

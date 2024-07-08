@@ -17,6 +17,11 @@ export default function Welcome({
             </div>
             <img
                 className={styles.portrait}
+                src="/public/clear-portrait.jpg"
+                alt="A pic of me"
+            />
+            <img
+                className={styles.pixel + " " + styles.portrait}
                 src="/public/pixel-portrait.png"
                 alt="A pic of me"
             />
