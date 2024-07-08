@@ -12,6 +12,8 @@
   font-style: normal;
   margin: 0;
   --text: #f4f2f1;
+  --light-text: #6e8da6;
+  --medium-text: #4d718e;
 }
 
 ::-webkit-scrollbar {
@@ -30,5 +32,7 @@ a:hover {
     background-color: #f4f2f1;
     color: #1d405c;
     --text: #1d405c;
+    --light-text: #8fa5b6;
+    --medium-text: #5c7c95;
   }
 }

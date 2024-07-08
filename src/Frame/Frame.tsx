@@ -6,8 +6,13 @@ import Hobbies from "../pages/Hobbies/Hobbies.tsx";
 import "./Frame.css";
 import Age from "../pages/Age/Age.tsx";
 
-const pages = ["/", "/age", "/projects", "/hobbies"];
-
+const pages: { [_: string]: string } = {
+    "/": "Hi",
+    "/age": "Age",
+    "/projects": "Projects",
+    "/hobbies": "Hobbies",
+};
+const pagesArray = Object.keys(pages);
 function GitHubLogo() {
     return (
         <svg
@@ -25,7 +30,7 @@ function GitHubLogo() {
 }
 
 export default function Frame() {
-    if (!pages.includes(window.location.pathname)) {
+    if (!pagesArray.includes(window.location.pathname)) {
         window.location.pathname = "";
     }
     const [path, setPath] = useState(window.location.pathname);
@@ -61,25 +66,25 @@ export default function Frame() {
             return;
         }
         scrollReady.current = false;
-        const index = pages.indexOf(path);
+        const index = pagesArray.indexOf(path);
 
         if (scroll > 0) {
             //load next page if not last
-            if (index !== pages.length - 1) {
+            if (index !== pagesArray.length - 1) {
                 setAnimations({ ...animations, [path]: "upOut" });
-                setPath(pages[index + 1]);
+                setPath(pagesArray[index + 1]);
                 setAnimations({
-                    [pages[index + 1]]: "downIn",
+                    [pagesArray[index + 1]]: "downIn",
                 });
             }
         } else {
             //load prior page if not first
             if (index !== 0) {
                 setAnimations({ ...animations, [path]: "downOut" });
-                setPath(pages[index - 1]);
+                setPath(pagesArray[index - 1]);
                 setAnimations({
                     ...animations,
-                    [pages[index - 1]]: "upIn",
+                    [pagesArray[index - 1]]: "upIn",
                 });
             }
         }
@@ -102,7 +107,14 @@ export default function Frame() {
     return (
         <div className={styles.container}>
             <div className={styles.headerContainer}>
-                <h1 className={styles.logo}>FZ</h1>
+                <h1
+                    className={styles.logo}
+                    onClick={() => {
+                        window.location.pathname = "";
+                    }}
+                >
+                    FZ
+                </h1>
                 <a
                     className={styles.githubContainer}
                     href="https://www.github.com/flavianz"
@@ -118,6 +130,27 @@ export default function Frame() {
             <div id={styles.scrollHint}>
                 <p>Scroll!</p>
                 <p id={styles.bouncer}>v</p>
+            </div>
+            <div id={styles.menuContainer}>
+                {pagesArray.map((page, i) => {
+                    return (
+                        <div
+                            className={
+                                styles.menuButtonWrapper +
+                                (page === window.location.pathname
+                                    ? " " + styles.menuSelected
+                                    : "")
+                            }
+                            key={i}
+                            onClick={() => {
+                                document.location.pathname = page;
+                            }}
+                        >
+                            <p>{pages[page]}</p>
+                            <div className={styles.menuButton} />
+                        </div>
+                    );
+                })}
             </div>
         </div>
     );

@@ -14,7 +14,7 @@
     position: fixed;
 }
 .github {
-    fill: var(--text);
+    fill: var(--medium-text);
     height: 2rem;
     width: 2rem;
 }
@@ -40,6 +40,11 @@
     font-family: "Outfit", sans-serif;
     font-weight: 700;
     letter-spacing: -0.08em;
+    color: var(--medium-text);
+    cursor: pointer;
+}
+.logo:hover {
+    color: var(--text);
 }
 #scrollHint {
     position: fixed;
@@ -73,5 +78,59 @@
     }
     100% {
         opacity: 1;
+    }
+}
+#menuContainer {
+    position: fixed;
+    right: 0;
+    display: flex;
+    padding: 2vw;
+    flex-direction: column;
+    align-items: center;
+    top: calc(40vh);
+}
+#menuContainer:hover {
+    div p {
+        opacity: 1;
+    }
+}
+.menuButton {
+    width: 0.6vw;
+    height: 0.6vw;
+    border-radius: 50%;
+    background: var(--light-text);
+    margin-right: 0.1vw;
+}
+.menuButtonWrapper {
+    height: 1.2vw;
+    padding: 0.56vw 0.45vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    p {
+        opacity: 0;
+        transition: opacity 0.5s;
+        color: var(--medium-text);
+        margin-right: 2vw;
+    }
+}
+.menuButtonWrapper:hover {
+    cursor: pointer;
+    div {
+        background: var(--text);
+    }
+    p {
+        color: var(--text);
+    }
+}
+.menuSelected {
+    div {
+        width: 0.8vw;
+        height: 0.8vw;
+        margin: 0;
+    }
+    p {
+        font-weight: 600;
     }
 }

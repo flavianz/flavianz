@@ -40,14 +40,14 @@ export default function Age({
                     )}{" "}
                     <span className={styles.unit}>hours</span>{" "}
                 </span>
-                <>
+                <span>
                     {Math.floor((duration % (1000 * 3600)) / 60000)}{" "}
                     <span className={styles.unit}>minutes</span>{" "}
-                </>
-                <>
+                </span>
+                <span>
                     {Math.floor((duration % (1000 * 60)) / 1000)}{" "}
                     <span className={styles.unit}>seconds</span>
-                </>
+                </span>
             </h1>
             <h2>old</h2>
         </div>
