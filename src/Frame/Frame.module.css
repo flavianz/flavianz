@@ -29,7 +29,7 @@
 }
 #pageContainer {
     width: calc(100% - 30vw);
-    padding: 12vh 10vw 8vw 20vw;
+    padding: 12vh 12vw 8vw 18vw;
     flex: 1;
     div {
         height: 100%;

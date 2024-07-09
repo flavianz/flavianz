@@ -5,12 +5,14 @@ import Projects from "../pages/Projects/Projects.tsx";
 import Hobbies from "../pages/Hobbies/Hobbies.tsx";
 import "./Frame.css";
 import Age from "../pages/Age/Age.tsx";
+import Legal from "../pages/Legal/Legal.tsx";
+import About from "../pages/About/About.tsx";
 
 const pages: { [_: string]: string } = {
     "/": "Hi",
-    "/age": "Age",
-    "/projects": "Projects",
+    "/about": "About",
     "/hobbies": "Hobbies",
+    "/legal": "Bla Bla Bla",
 };
 const pagesArray = Object.keys(pages);
 function GitHubLogo() {
@@ -39,18 +41,19 @@ export default function Frame() {
     const scrollsPassed = useRef(0);
 
     function Page({ renderPath }: { renderPath: string }) {
-        if (document.location.pathname !== renderPath) {
-            document.location.pathname = renderPath;
-        }
         switch (renderPath) {
             case "/":
                 return <Welcome animation={animations} />;
+            case "/about":
+                return <About animation={animations} />;
             case "/projects":
                 return <Projects animation={animations} />;
             case "/age":
                 return <Age animation={animations} />;
             case "/hobbies":
                 return <Hobbies animation={animations} />;
+            case "/legal":
+                return <Legal animation={animations}></Legal>;
             default:
                 return <Welcome animation={animations} />;
         }
@@ -137,7 +140,7 @@ export default function Frame() {
                         <div
                             className={
                                 styles.menuButtonWrapper +
-                                (page === window.location.pathname
+                                (i === pagesArray.indexOf(path)
                                     ? " " + styles.menuSelected
                                     : "")
                             }
