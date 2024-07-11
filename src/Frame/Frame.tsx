@@ -11,7 +11,7 @@ import About from "../pages/About/About.tsx";
 const pages: { [_: string]: string } = {
     "/": "Hi",
     "/about": "About",
-    "/hobbies": "Hobbies",
+    "/projects": "Projects",
     "/legal": "Bla Bla Bla",
 };
 const pagesArray = Object.keys(pages);
@@ -65,12 +65,11 @@ export default function Frame() {
         }
         const scroll = Math.round(window.scrollY * 10) / 10;
         scrollsPassed.current++;
-        if (scroll === 0.7 && scrollsPassed.current !== 2) {
+        if (scroll === 0.7) {
             return;
         }
         scrollReady.current = false;
         const index = pagesArray.indexOf(path);
-
         if (scroll > 0) {
             //load next page if not last
             if (index !== pagesArray.length - 1) {
@@ -142,7 +141,7 @@ export default function Frame() {
                             }
                             key={i}
                             onClick={() => {
-                                document.location.pathname = page;
+                                setPath(page);
                             }}
                         >
                             <p>{pages[page]}</p>

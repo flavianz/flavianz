@@ -16,9 +16,9 @@
   --medium-text: #4d718e;
 }
 
-::-webkit-scrollbar {
-  width: 0;
-}
+/*::-webkit-scrollbar {*/
+/*  width: 0;*/
+/*}*/
 
 a:hover {
   cursor: pointer;

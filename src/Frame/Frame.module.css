@@ -31,10 +31,6 @@
     width: calc(100% - 30vw);
     padding: 12vh 12vw 8vw 18vw;
     flex: 1;
-    div {
-        height: 100%;
-        border-radius: 2vw;
-    }
 }
 .logo {
     font-family: "Outfit", sans-serif;
