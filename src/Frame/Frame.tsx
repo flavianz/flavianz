@@ -130,10 +130,6 @@ export default function Frame() {
             <div id={styles.pageContainer}>
                 <Page renderPath={path} />
             </div>
-            <div id={styles.scrollHint}>
-                <p>Scroll!</p>
-                <p id={styles.bouncer}>v</p>
-            </div>
             <div id={styles.menuContainer}>
                 {pagesArray.map((page, i) => {
                     return (

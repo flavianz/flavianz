@@ -26,6 +26,10 @@ export default function Welcome({
                 src={pixeled}
                 alt="A pic of me"
             />
+            <div id={styles.scrollHint}>
+                <p>Scroll!</p>
+                <p>v</p>
+            </div>
         </div>
     );
 }

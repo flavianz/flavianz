@@ -13,7 +13,7 @@
     line-height: 3rem;
 }
 .container{
-    display: flex;
+    display: grid;
     align-items: center;
     height: 100%;
     justify-content: space-between;
@@ -37,4 +37,24 @@
     image-rendering: pixelated;
     border-radius: 50%;
     height: 13vw;
+}
+#scrollHint {
+    position: fixed;
+    top: 93vh;
+    right: 49%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    p {
+        line-height: 1rem;
+        animation: appearAnimation 2s ease-in;
+    }
+}
+@keyframes appearAnimation {
+    0%, 80%  {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
