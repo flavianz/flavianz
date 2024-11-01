@@ -7,7 +7,6 @@ import "./Frame.css";
 import Age from "../pages/Age/Age.tsx";
 import Legal from "../pages/Legal/Legal.tsx";
 import About from "../pages/About/About.tsx";
-import { i } from "vite/dist/node/types.d-aGj9QkWt";
 
 const pages: { [_: string]: string } = {
     "/": "Hi",
