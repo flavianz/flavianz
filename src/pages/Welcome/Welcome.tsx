@@ -20,12 +20,18 @@ export default function Welcome({
                     Free time developer and tech enjoyer.
                 </h3>
             </div>
-            <img className={styles.portrait} src={clear} alt="A pic of me" />
-            <img
-                className={styles.pixel + " " + styles.portrait}
-                src={pixeled}
-                alt="A pic of me"
-            />
+            <div className={styles.imgContainer}>
+                <img
+                    className={styles.portrait}
+                    src={clear}
+                    alt="A pic of me"
+                />
+                <img
+                    className={styles.pixel + " " + styles.portrait}
+                    src={pixeled}
+                    alt="A pic of me"
+                />
+            </div>
             <div id={styles.scrollHint}>
                 <p>Scroll!</p>
                 <p>v</p>

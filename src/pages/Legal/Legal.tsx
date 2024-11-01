@@ -10,7 +10,9 @@ export default function Legal({
         : "";
     return (
         <div id={styles.container} className={className}>
-            <h1>© {new Date().getFullYear()} Flavian Züllig</h1>
+            <h1 id={styles.text}>
+                © {new Date().getFullYear()} Flavian Züllig
+            </h1>
         </div>
     );
 }

@@ -13,16 +13,18 @@
     line-height: 3rem;
 }
 .container{
-    display: grid;
+    display: flex;
     align-items: center;
     height: 100%;
     justify-content: space-between;
+    flex-direction: row;
 }
+
 .textContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 100%;
+    flex: 1;
 }
 .pixel {
     z-index: 1;
@@ -32,11 +34,10 @@
     opacity: 0;
 }
 .portrait {
-    position: fixed;
-    right: 20vw;
     image-rendering: pixelated;
     border-radius: 50%;
     height: 13vw;
+    position: fixed;
 }
 #scrollHint {
     position: fixed;
@@ -56,5 +57,28 @@
     }
     100% {
         opacity: 1;
+    }
+}
+
+.imgContainer {
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+@media (max-aspect-ratio: 1/1) {
+    .container {
+        flex-direction: column;
+    }
+    .imgContainer {
+        width: 100%;
+        img {
+            height: 20vh;
+        }
+    }
+    #scrollHint {
+        visibility: hidden;
     }
 }

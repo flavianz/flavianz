@@ -6,6 +6,12 @@
     width: 100%;
 }
 
-h1 {
-    margin-right: 10vw;
+#text {
+    margin-right: 4vw;
+    text-align: center;
+}
+@media (max-aspect-ratio: 1/1) {
+    h1 {
+        margin-right: 0;
+    }
 }

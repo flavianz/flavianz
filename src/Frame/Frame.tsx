@@ -7,6 +7,7 @@ import "./Frame.css";
 import Age from "../pages/Age/Age.tsx";
 import Legal from "../pages/Legal/Legal.tsx";
 import About from "../pages/About/About.tsx";
+import { i } from "vite/dist/node/types.d-aGj9QkWt";
 
 const pages: { [_: string]: string } = {
     "/": "Hi",
@@ -60,6 +61,9 @@ export default function Frame() {
     const lastScroll = useRef(0);
 
     function handleWheel(event: WheelEvent) {
+        if (window.innerWidth / window.innerHeight <= 1) {
+            return;
+        }
         if (Date.now() - lastScroll.current < 300) {
             lastScroll.current = Date.now();
             return;
@@ -118,6 +122,7 @@ export default function Frame() {
             <div id={styles.pageContainer}>
                 <Page renderPath={path} />
             </div>
+
             <div id={styles.menuContainer}>
                 {pagesArray.map((page, i) => {
                     return (
@@ -138,6 +143,29 @@ export default function Frame() {
                         </div>
                     );
                 })}
+            </div>
+            <div id={styles.navArrowsContainer}>
+                {pagesArray.indexOf(path) !== 0 && (
+                    <p
+                        onClick={() => {
+                            const index = pagesArray.indexOf(path);
+                            setPath(pagesArray[index - 1]);
+                        }}
+                    >
+                        {"<"}
+                    </p>
+                )}
+                <p style={{ flex: 1 }}></p>
+                {pagesArray.indexOf(path) !== pagesArray.length - 1 && (
+                    <p
+                        onClick={() => {
+                            const index = pagesArray.indexOf(path);
+                            setPath(pagesArray[index + 1]);
+                        }}
+                    >
+                        {">"}
+                    </p>
+                )}
             </div>
         </div>
     );

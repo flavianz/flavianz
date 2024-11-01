@@ -1,8 +1,9 @@
 .container {
     width: 100%;
-    height: calc(100vh);
+    height: 100dvh;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 .headerContainer {
     width: calc(100% - 4vw);
@@ -28,9 +29,10 @@
     font-size: 0;
 }
 #pageContainer {
-    width: calc(100% - 30vw);
-    padding: 12vh 12vw 8vw 18vw;
+    width: calc(100% - 24vw);
+    padding: 12vh 12vw 6vh 12vw;
     flex: 1;
+    max-height: calc(75%);
 }
 .logo {
     font-family: "Outfit", sans-serif;
@@ -94,5 +96,30 @@
     }
     p {
         font-weight: 600;
+    }
+}
+
+#navArrowsContainer {
+    display: flex;
+    p {
+        font-size: 2rem;
+        cursor: pointer;
+        padding: 1rem 2rem;
+    }
+    visibility: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+@media (max-aspect-ratio: 1/1) {
+    .headerContainer {
+        padding: 3vh ;
+        width:  calc(100% - 6vh)
+    }
+    #menuContainer {
+        visibility: hidden;
+    }
+    #navArrowsContainer {
+        visibility: visible;
     }
 }

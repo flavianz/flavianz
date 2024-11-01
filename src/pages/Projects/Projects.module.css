@@ -7,6 +7,7 @@
     width: 100%;
     display: flex;
     align-items: center;
+    height: 100%;
 }
 .projectClickable {
     cursor: pointer;
@@ -15,12 +16,9 @@ a {
     cursor: default;
 }
 .projectContainer {
-    width: 25%;
-    border-radius: 2vw;
-    padding: 2vw 2vw;
-    margin-top: 8vh;
-    height: 90%;
-    margin-right: 1.5vw;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin: 1rem;
     box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
 }
 .projectClickable:hover {
@@ -31,7 +29,7 @@ a {
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    overflow: scroll;
 }
 .projectTitle {
     font-family: "Outfit", sans-serif;
@@ -39,7 +37,12 @@ a {
     font-weight: 700;
 }
 .projectDescription {
-    margin-top: 3.5vh;
+    margin-top: 1vh;
     font-family: Inter, sans-serif;
     font-weight: 400;
+}
+@media (max-aspect-ratio: 1/1) {
+    .projects {
+        flex-direction: column;
+    }
 }
