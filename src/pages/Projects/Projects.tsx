@@ -33,6 +33,7 @@ export default function Projects({
                     return (
                         <a
                             href={project.href}
+                            target={"_blank"}
                             key={id}
                             className={
                                 styles.projectContainer +

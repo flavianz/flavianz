@@ -37,8 +37,6 @@ export default function Frame() {
     }
     const [path, setPath] = useState(window.location.pathname);
     const [animations, setAnimations] = useState<{ [id: string]: string }>({});
-    const scrollReady = useRef(true);
-    const scrollsPassed = useRef(0);
 
     function Page({ renderPath }: { renderPath: string }) {
         switch (renderPath) {
@@ -59,19 +57,16 @@ export default function Frame() {
         }
     }
 
-    function handleScroll() {
-        if (!scrollReady.current) {
+    const lastScroll = useRef(0);
+
+    function handleWheel(event: WheelEvent) {
+        if (Date.now() - lastScroll.current < 300) {
+            lastScroll.current = Date.now();
             return;
         }
-        const scroll = Math.round(window.scrollY * 10) / 10;
-        scrollsPassed.current++;
-        if (scroll === 0.7) {
-            return;
-        }
-        scrollReady.current = false;
         const index = pagesArray.indexOf(path);
-        if (scroll > 0) {
-            //load next page if not last
+        if (event.deltaY > 0) {
+            // up
             if (index !== pagesArray.length - 1) {
                 setAnimations({ ...animations, [path]: "upOut" });
                 setPath(pagesArray[index + 1]);
@@ -80,7 +75,7 @@ export default function Frame() {
                 });
             }
         } else {
-            //load prior page if not first
+            // down
             if (index !== 0) {
                 setAnimations({ ...animations, [path]: "downOut" });
                 setPath(pagesArray[index - 1]);
@@ -90,19 +85,13 @@ export default function Frame() {
                 });
             }
         }
-    }
-
-    async function handleScrollEnd() {
-        window.scrollTo(0, 1);
-        scrollReady.current = true;
+        lastScroll.current = Date.now();
     }
 
     useEffect(() => {
-        window.addEventListener("scroll", handleScroll);
-        window.addEventListener("scrollend", handleScrollEnd);
+        window.addEventListener("wheel", handleWheel);
         return () => {
-            window.removeEventListener("scroll", handleScroll);
-            window.removeEventListener("scrollend", handleScrollEnd);
+            window.removeEventListener("wheel", handleWheel);
         };
     });
 
