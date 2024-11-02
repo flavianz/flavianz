@@ -59,8 +59,16 @@ export default function Frame() {
 
     const lastScroll = useRef(0);
 
+    function isCropped() {
+        const isCropped = window.innerWidth / window.innerHeight <= 1;
+        if (isCropped) {
+            setAnimations({});
+        }
+        return isCropped;
+    }
+
     function handleWheel(event: WheelEvent) {
-        if (window.innerWidth / window.innerHeight <= 1) {
+        if (isCropped()) {
             return;
         }
         if (Date.now() - lastScroll.current < 300) {
@@ -91,10 +99,47 @@ export default function Frame() {
         lastScroll.current = Date.now();
     }
 
+    function handleKeyDown(event: KeyboardEvent) {
+        switch (event.key) {
+            case "ArrowLeft":
+            case "ArrowUp": {
+                const index = pagesArray.indexOf(path);
+                if (index !== 0) {
+                    setPath(pagesArray[index - 1]);
+                    if (!isCropped()) {
+                        setAnimations({
+                            ...animations,
+                            [pagesArray[index - 1]]: "upIn",
+                        });
+                    }
+                }
+                break;
+            }
+            case "ArrowDown":
+            case "ArrowRight": {
+                const index = pagesArray.indexOf(path);
+                if (index !== pagesArray.length - 1) {
+                    setPath(pagesArray[index + 1]);
+                    if (!isCropped()) {
+                        setAnimations({
+                            [pagesArray[index + 1]]: "downIn",
+                        });
+                    }
+                }
+                break;
+            }
+            default: {
+                return;
+            }
+        }
+    }
+
     useEffect(() => {
         window.addEventListener("wheel", handleWheel);
+        window.addEventListener("keydown", handleKeyDown);
         return () => {
             window.removeEventListener("wheel", handleWheel);
+            window.removeEventListener("keydown", handleKeyDown);
         };
     });
 
