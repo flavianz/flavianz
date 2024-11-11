@@ -19,6 +19,21 @@
     height: 2rem;
     width: 2rem;
 }
+.mail {
+    stroke: var(--medium-text);
+    height: 2rem;
+    width: 2rem;
+}
+.mailContainer:hover .mail {
+    stroke: var(--text);
+}
+.mailContainer {
+    height: 2rem;
+    width: 2rem;
+    cursor: pointer;
+    font-size: 0;
+    margin-right: 2rem;
+}
 .githubContainer:hover .github {
     fill: var(--text);
 }
