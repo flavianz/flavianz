@@ -1,19 +1,16 @@
 #container {
     padding: 8vh 0 0 0;
     max-height: 100%;
-    display: flex;
     overflow: scroll;
 }
 .boxContainer {
     flex: 1;
-    margin-right: 7rem;
 }
 .gridContainer {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 1vh 2vw;
-    width: 100%;
-    padding: 3rem 0;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-gap: 3vh 2vw;
+    padding: 5rem 3rem;
     flex: 1;
 }
 .logo {
@@ -37,6 +34,22 @@
     background: #e8e6e5;
     border-radius: 1vw;
 }
+#pageSelectorContainer {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+.pageSelector {
+    padding: 2vh;
+    border-color: var(--medium-text);
+    font-size: 3vh;
+}
+.pageSelector:hover {
+    border-color: var(--light-text);
+    border-bottom-style: solid;
+    cursor: pointer;
+
+}
 
 @media (max-aspect-ratio: 1/1) {
     #container {
@@ -44,5 +57,8 @@
     }
     .boxContainer {
         margin-right: auto;
+    }
+    .gridContainer {
+        padding: 1rem;
     }
 }
