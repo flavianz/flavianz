@@ -65,8 +65,22 @@ a {
     padding: 0.6vh 1vw;
     margin: 0.6vw 0.6vw 0 0;
 }
+#mobileScrollExtender {
+    font-size: 1px;
+    color: white;
+}
 @media (max-aspect-ratio: 1/1) {
     .projects {
         flex-direction: column;
     }
+    .projectContainer {
+        min-height: unset;
+
+    }
+    .stackBubble {
+        padding: 0.6vh 3vw;
+        margin: 2vw 2vw 0 0;
+
+    }
+
 }

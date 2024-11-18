@@ -41,6 +41,7 @@ export default function Projects({
                     href={"https://www.github.com/flavianz/songy"}
                     stack={["React", "Vite", "Firebase", "Node.js"]}
                 />
+                <p id={styles.mobileScrollExtender}>a</p>
             </div>
         </div>
     );
