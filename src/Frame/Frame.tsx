@@ -91,6 +91,8 @@ export default function Frame() {
                 setAnimations({
                     [pagesArray[index + 1]]: "downIn",
                 });
+            } else {
+                setAnimations({});
             }
         }
     }
@@ -104,6 +106,8 @@ export default function Frame() {
                     ...animations,
                     [pagesArray[index - 1]]: "upIn",
                 });
+            } else {
+                setAnimations({});
             }
         }
     }
@@ -205,6 +209,7 @@ export default function Frame() {
                             }
                             key={i}
                             onClick={() => {
+                                setAnimations({});
                                 setPath(page);
                             }}
                         >
@@ -216,25 +221,11 @@ export default function Frame() {
             </div>
             <div id={styles.navArrowsContainer}>
                 {pagesArray.indexOf(path) !== 0 && (
-                    <p
-                        onClick={() => {
-                            const index = pagesArray.indexOf(path);
-                            setPath(pagesArray[index - 1]);
-                        }}
-                    >
-                        {"<"}
-                    </p>
+                    <p onClick={() => navigateDown(false)}>{"<"}</p>
                 )}
                 <p style={{ flex: 1 }}></p>
                 {pagesArray.indexOf(path) !== pagesArray.length - 1 && (
-                    <p
-                        onClick={() => {
-                            const index = pagesArray.indexOf(path);
-                            setPath(pagesArray[index + 1]);
-                        }}
-                    >
-                        {">"}
-                    </p>
+                    <p onClick={() => navigateUp(false)}>{">"}</p>
                 )}
             </div>
         </div>

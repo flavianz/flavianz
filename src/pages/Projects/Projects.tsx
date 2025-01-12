@@ -34,6 +34,14 @@ export default function Projects({
                     stack={["Typescript", "ASM x86", "React", "MDX", "Vite"]}
                 />
                 <Item
+                    title={"Playground"}
+                    description={
+                        "Sometimes, I get the urge just to create my own version of a small simple game like Tic-Tac-Toe or some useful tool. For this, I created this little collection of all my small little side projects to be stored all in one place"
+                    }
+                    href={"https://playground.flavianz.ch"}
+                    stack={["Typescript", "React", "Vite", "Github Pages"]}
+                />
+                <Item
                     title={"Song Guessing Game"}
                     description={
                         "Right now, I am building a small multiplayer game where you have to guess the song based on its lyrics. "
