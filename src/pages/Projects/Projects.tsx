@@ -31,23 +31,20 @@ export default function Projects({
                         "As a school project, I created a compiler in Typescript that compiled 'EmojiDo', a programming language I invented that only uses Emojis, to x86 Assembly. Along the way, I wrote a small public documentation for the language."
                     }
                     href={"https://emojido.flavianz.ch"}
-                    stack={["Typescript", "ASM x86", "React", "MDX", "Vite"]}
+                    stack={["TypeScript", "ASM x86", "React", "MDX", "Vite"]}
                 />
                 <Item
-                    title={"Playground"}
+                    title={"'Among Us'-inspired Game"}
                     description={
-                        "Sometimes, I get the urge just to create my own version of a small simple game like Tic-Tac-Toe or some useful tool. For this, I created this little collection of all my small little side projects to be stored all in one place"
+                        "As a project for a course at the University of Basel, me, along with three other team members, created a modified version of the popular game 'Among us' in Java. "
                     }
-                    href={"https://playground.flavianz.ch"}
-                    stack={["Typescript", "React", "Vite", "Github Pages"]}
-                />
-                <Item
-                    title={"Song Guessing Game"}
-                    description={
-                        "Right now, I am building a small multiplayer game where you have to guess the song based on its lyrics. "
-                    }
-                    href={"https://www.github.com/flavianz/songy"}
-                    stack={["React", "Vite", "Firebase", "Node.js"]}
+                    href={"https://cc.flavianz.ch"}
+                    stack={[
+                        "Java",
+                        "JavaFX",
+                        "Gradle",
+                        "Server - Client Architecture",
+                    ]}
                 />
                 <p id={styles.mobileScrollExtender}>a</p>
             </div>
