@@ -11,6 +11,7 @@ import pythonIcon from "../../assets/python.svg";
 import cPlusPlusIcon from "../../assets/cplusplus.svg";
 import postgresIcon from "../../assets/postgres.svg";
 import unityIcon from "../../assets/unity.svg";
+import javaIcon from "../../assets/java.svg";
 import { useEffect, useState } from "react";
 
 export default function Stack({
@@ -83,6 +84,7 @@ function Dailys() {
                 <Bubble icon={firebaseIcon} text={"Firebase"} />
                 <Bubble icon={gitIcon} text={"Git"} />
                 <Bubble icon={jetbrainsIcon} text={"Jetbrains Software"} />
+                <Bubble icon={javaIcon} text={"Java"} />
             </div>
         </div>
     );
