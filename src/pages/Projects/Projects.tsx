@@ -50,25 +50,18 @@ export default function Projects({
                     stack={["Flutter", "Dart", "Firebase", "TypeScript"]}
                 />
                 <Item
-                    title={"Song Guessing Game"}
+                    title={"'Among Us'-inspired Game"}
                     description={
-                        "Right now, I am building a small multiplayer game where you have to guess the song based on its lyrics. "
+                        "As a project for a course at the University of Basel, me, along with three other team members, created a modified version of the popular game 'Among us' in Java. "
                     }
-                    href={"https://www.github.com/flavianz/songy"}
-                    stack={["React", "Vite", "Firebase", "Node.js"]}
-                /> <Item
-                title={"'Among Us'-inspired Game"}
-                description={
-                    "As a project for a course at the University of Basel, me, along with three other team members, created a modified version of the popular game 'Among us' in Java. "
-                }
-                href={"https://cc.flavianz.ch"}
-                stack={[
-                    "Java",
-                    "JavaFX",
-                    "Gradle",
-                    "Server - Client Architecture",
-                ]}
-            />
+                    href={"https://cc.flavianz.ch"}
+                    stack={[
+                        "Java",
+                        "JavaFX",
+                        "Gradle",
+                        "Server - Client Architecture",
+                    ]}
+                />
                 <p id={styles.mobileScrollExtender}>a</p>
             </div>
         </div>
