@@ -4,7 +4,7 @@ import nodejsIcon from "../../assets/nodejs.svg";
 import reactIcon from "../../assets/react.svg";
 import rustIcon from "../../assets/rust.svg";
 import typescriptIcon from "../../assets/typescript.svg";
-import viteIcon from "../../assets/vite.svg";
+import flutterIcon from "../../assets/flutter.svg";
 import styles from "./Stack.module.css";
 import jetbrainsIcon from "../../assets/jetbrains.svg";
 import pythonIcon from "../../assets/python.svg";
@@ -79,7 +79,7 @@ function Dailys() {
                 <Bubble icon={typescriptIcon} text={"Typescript"} />
                 <Bubble icon={nodejsIcon} text={"Node.js"} />
                 <Bubble icon={reactIcon} text={"React"} />
-                <Bubble icon={viteIcon} text={"Vite"} />
+                <Bubble icon={flutterIcon} text={"Flutter"} />
                 <Bubble icon={firebaseIcon} text={"Firebase"} />
                 <Bubble icon={gitIcon} text={"Git"} />
                 <Bubble icon={jetbrainsIcon} text={"Jetbrains Software"} />

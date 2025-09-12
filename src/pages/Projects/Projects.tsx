@@ -31,7 +31,7 @@ export default function Projects({
                         "As a school project, I created a compiler in Typescript that compiled 'EmojiDo', a programming language I invented that only uses Emojis, to x86 Assembly. Along the way, I wrote a small public documentation for the language."
                     }
                     href={"https://emojido.flavianz.ch"}
-                    stack={["Typescript", "ASM x86", "React", "MDX", "Vite"]}
+                    stack={["TypeScript", "ASM x86", "React", "MDX", "Vite"]}
                 />
                 <Item
                     title={"Playground"}
@@ -39,15 +39,15 @@ export default function Projects({
                         "Sometimes, I get the urge just to create my own version of a small simple game like Tic-Tac-Toe or some useful tool. For this, I created this little collection of all my small little side projects to be stored all in one place"
                     }
                     href={"https://playground.flavianz.ch"}
-                    stack={["Typescript", "React", "Vite", "Github Pages"]}
+                    stack={["TypeScript", "React", "Vite", "Github Pages"]}
                 />
                 <Item
-                    title={"Song Guessing Game"}
+                    title={"Club Management Software"}
                     description={
-                        "Right now, I am building a small multiplayer game where you have to guess the song based on its lyrics. "
+                        "I am currently developing a club management solution for my local floorball club. The goal is a complete all-in-one tool for managing members, teams, events finances and everything in between. The platform is available to every member of the club via native mobile app or the web."
                     }
-                    href={"https://www.github.com/flavianz/songy"}
-                    stack={["React", "Vite", "Firebase", "Node.js"]}
+                    href={"https://www.github.com/flavianz/tv-oberwil"}
+                    stack={["Flutter", "Dart", "Firebase", "TypeScript"]}
                 />
                 <p id={styles.mobileScrollExtender}>a</p>
             </div>
