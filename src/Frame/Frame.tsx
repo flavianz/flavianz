@@ -220,13 +220,50 @@ export default function Frame() {
                 })}
             </div>
             <div id={styles.navArrowsContainer}>
-                {pagesArray.indexOf(path) !== 0 && (
-                    <p onClick={() => navigateDown(false)}>{"<"}</p>
-                )}
-                <p style={{ flex: 1 }}></p>
-                {pagesArray.indexOf(path) !== pagesArray.length - 1 && (
-                    <p onClick={() => navigateUp(false)}>{">"}</p>
-                )}
+                <p
+                    onClick={() => navigateDown(false)}
+                    style={{
+                        visibility:
+                            pagesArray.indexOf(path) !== 0
+                                ? "visible"
+                                : "hidden",
+                    }}
+                >
+                    {"<"}
+                </p>
+
+                <div className={styles.bottomNavContainer}>
+                    {pagesArray.map((page, i) => {
+                        return (
+                            <div
+                                className={
+                                    styles.menuButtonWrapper +
+                                    (i === pagesArray.indexOf(path)
+                                        ? " " + styles.menuSelected
+                                        : "")
+                                }
+                                key={i}
+                                onClick={() => {
+                                    setAnimations({});
+                                    setPath(page);
+                                }}
+                            >
+                                <div className={styles.menuButton} />
+                            </div>
+                        );
+                    })}
+                </div>
+                <p
+                    onClick={() => navigateUp(false)}
+                    style={{
+                        visibility:
+                            pagesArray.indexOf(path) !== pagesArray.length - 1
+                                ? "visible"
+                                : "hidden",
+                    }}
+                >
+                    {">"}
+                </p>
             </div>
         </div>
     );

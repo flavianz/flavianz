@@ -77,13 +77,13 @@ function Dailys() {
     return (
         <div className={styles.boxContainer}>
             <div className={styles.gridContainer}>
-                <Bubble icon={typescriptIcon} text={"Typescript"} />
-                <Bubble icon={nodejsIcon} text={"Node.js"} />
-                <Bubble icon={reactIcon} text={"React"} />
                 <Bubble icon={flutterIcon} text={"Flutter"} />
-                <Bubble icon={firebaseIcon} text={"Firebase"} />
-                <Bubble icon={gitIcon} text={"Git"} />
+                <Bubble icon={typescriptIcon} text={"Typescript"} />
                 <Bubble icon={jetbrainsIcon} text={"Jetbrains Software"} />
+                <Bubble icon={reactIcon} text={"React"} />
+                <Bubble icon={nodejsIcon} text={"Node.js"} />
+                <Bubble icon={gitIcon} text={"Git"} />
+                <Bubble icon={firebaseIcon} text={"Firebase"} />
                 <Bubble icon={javaIcon} text={"Java"} />
             </div>
         </div>

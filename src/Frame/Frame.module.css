@@ -126,6 +126,12 @@
     bottom: 0;
     width: 100%;
 }
+.bottomNavContainer {
+    padding: 0 20vw;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
 @media (max-aspect-ratio: 1/1) {
     .headerContainer {
         padding: 3vh ;
@@ -136,5 +142,19 @@
     }
     #navArrowsContainer {
         visibility: visible;
+    }
+    .menuButtonWrapper {
+        place-content: center;
+        height: 100%;
+        .menuButton {
+            width: 1vh;
+            height: 1vh;
+        }
+
+    }
+    .menuSelected .menuButton {
+        width: 1.5vh;
+        height: 1.5vh;
+        margin: 0;
     }
 }
