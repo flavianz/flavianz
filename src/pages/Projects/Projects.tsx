@@ -124,7 +124,7 @@ function Item({
 }) {
     return (
         <a
-            href={href == "" ? undefined : ""}
+            href={href == "" ? undefined : href}
             target={"_blank"}
             className={
                 styles.projectContainer +
