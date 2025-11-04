@@ -5,7 +5,6 @@ import Projects from "../pages/Projects/Projects.tsx";
 import Hobbies from "../pages/Hobbies/Hobbies.tsx";
 import "./Frame.css";
 import Age from "../pages/Age/Age.tsx";
-import Legal from "../pages/Legal/Legal.tsx";
 import About from "../pages/About/About.tsx";
 import Stack from "../pages/Stack/Stack.tsx";
 
@@ -14,7 +13,6 @@ const pages: { [_: string]: string } = {
     "/stack": "Stack",
     "/projects": "Projects",
     "/about": "About",
-    "/legal": "Bla Bla Bla",
 };
 const pagesArray = Object.keys(pages);
 function GitHubLogo() {
@@ -72,8 +70,6 @@ export default function Frame() {
                 return <Age animation={animations} />;
             case "/hobbies":
                 return <Hobbies animation={animations} />;
-            case "/legal":
-                return <Legal animation={animations}></Legal>;
             case "/stack":
                 return <Stack animation={animations} />;
             default:

@@ -32,7 +32,7 @@ export default function Projects({
         <Item
             title={"Club Management Software"}
             description={
-                "I am currently developing a club management solution for my local floorball club. The goal is a complete all-in-one tool for managing members, teams, events finances and everything in between. The platform is available to every member of the club via native mobile app or the web."
+                "I am currently developing a club management solution for my local floorball club. The goal is a complete all-in-one tool for managing members, teams, events, finances and everything in between. The platform is available to every member of the club via native mobile app or the web."
             }
             href={"https://www.github.com/flavianz/tv-oberwil"}
             stack={["Flutter", "Dart", "Firebase", "TypeScript"]}
