@@ -38,6 +38,14 @@ export default function Projects({
             stack={["Flutter", "Dart", "Firebase", "TypeScript"]}
         />,
         <Item
+            title={"SummaryLib"}
+            description={
+                "As a student, I often have to read and analyze novels. Sadly, I am not the greatest fan of reading old books, so I created a site where I upload books from the public domain and summarize and analyze them chapter by chapter using generative AI."
+            }
+            href={"https://summarylib.flavianz.ch"}
+            stack={["Next.js", "Postgres", "Tailwind CSS", "Google AI Studio"]}
+        />,
+        <Item
             title={"'Among Us'-inspired Game"}
             description={
                 "As a project for a course at the University of Basel, me, along with three other team members, created a modified version of the popular game 'Among us' in Java. "
