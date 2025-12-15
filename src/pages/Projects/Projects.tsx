@@ -42,7 +42,7 @@ export default function Projects({
             description={
                 "As a student, I often have to read and analyze novels. Sadly, I am not the greatest fan of reading old books, so I created a site where I upload books from the public domain and summarize and analyze them chapter by chapter using generative AI."
             }
-            href={"https://summarylib.flavianz.ch"}
+            href={"https://summarylib.org"}
             stack={["Next.js", "Postgres", "Tailwind CSS", "Google AI Studio"]}
         />,
         <Item
