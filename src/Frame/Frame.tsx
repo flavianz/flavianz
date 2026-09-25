@@ -51,7 +51,59 @@ function MailIcon() {
     );
 }
 
+function differenceInYears(date1, date2) {
+    let years = date2.getFullYear() - date1.getFullYear();
+
+    // Subtract one if the anniversary hasn't happened yet
+    const anniversary = new Date(date1);
+    anniversary.setFullYear(date2.getFullYear());
+
+    if (anniversary > date2) {
+        years--;
+    }
+
+    return years;
+}
+
 export default function Frame() {
+    return (
+        <div
+            style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontFamily: "Georgia",
+                height: "100vh",
+                width: "100vw",
+                flexDirection: "column",
+                gap: "1rem",
+            }}
+        >
+            <h1>Flavian Züllig.</h1>
+            <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+                <p>Basel, Switzerland</p>
+                <p>
+                    {differenceInYears(new Date("2007-09-14"), new Date())} y/o
+                </p>
+            </div>
+            <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+                <a
+                    style={{ textDecoration: "underline" }}
+                    href="mailto:flavianzullig@gmail.com"
+                >
+                    E-Mail
+                </a>
+                <a
+                    style={{ textDecoration: "underline" }}
+                    href="https://www.github.com/flavianz"
+                    target="_blank"
+                >
+                    GitHub
+                </a>
+            </div>
+        </div>
+    );
+
     if (!pagesArray.includes(window.location.pathname)) {
         window.location.pathname = "";
     }
