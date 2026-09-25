@@ -86,15 +86,27 @@ export default function Frame() {
                     {differenceInYears(new Date("2007-09-14"), new Date())} y/o
                 </p>
             </div>
-            <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+            <div
+                style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "1rem",
+                }}
+            >
                 <a
-                    style={{ textDecoration: "underline" }}
+                    style={{
+                        textDecoration: "underline",
+                        color: "var(--text)",
+                    }}
                     href="mailto:flavianzullig@gmail.com"
                 >
                     E-Mail
                 </a>
                 <a
-                    style={{ textDecoration: "underline" }}
+                    style={{
+                        textDecoration: "underline",
+                        color: "var(--text)",
+                    }}
                     href="https://www.github.com/flavianz"
                     target="_blank"
                 >
