@@ -28,3 +28,11 @@ a:hover {
 * {
   margin: 0;
 }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: #cdc8c2;
+    background-color: #020b12;
+    --text: #cdc8c2;
+  }
+}
