@@ -51,7 +51,7 @@ function MailIcon() {
     );
 }
 
-function differenceInYears(date1, date2) {
+function differenceInYears(date1: Date, date2: Date) {
     let years = date2.getFullYear() - date1.getFullYear();
 
     // Subtract one if the anniversary hasn't happened yet
