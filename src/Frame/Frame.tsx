@@ -113,6 +113,16 @@ export default function Frame() {
                     GitHub
                 </a>
             </div>
+            <a
+                style={{
+                    textDecoration: "underline",
+                    color: "var(--text)",
+                    marginTop: "2vh",
+                }}
+                href="/Maturarbeit.pdf"
+            >
+                Matura Thesis
+            </a>
         </div>
     );
 
